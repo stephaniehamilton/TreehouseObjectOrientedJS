@@ -11,11 +11,11 @@ var QuizUI = {
     displayQuestion: function() {
       this.populateIdWithHTML("question", quiz.getCurrentQuestion().text);
     },
-    dispalyChoices: function() {
+    displayChoices: function() {
         var choices = quiz.getCurrentQuestion().choices;
 
         for(var i = 0; i < choices.length; i++) {
-            this.populateIdWithHTML("choice" + 1, choices[i]);
+            this.populateIdWithHTML("choice" + i, choices[i]);
             this.guessHandler("guess" + i, choices[i]);
         }
     },
@@ -36,7 +36,7 @@ var QuizUI = {
         }
     },
     displayProgress: function() {
-        var currentQuestionNumber =quiz.currentQuestionIndex + 1;
+        var currentQuestionNumber = quiz.currentQuestionIndex + 1;
         this.populateIdWithHTML("progress", "Question" + currentQuestionNumber + "of" + quiz.question.length);
     }
 };
